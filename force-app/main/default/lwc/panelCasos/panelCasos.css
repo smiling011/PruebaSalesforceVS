@@ -1,0 +1,57 @@
+.panel {
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    color: #181818;
+}
+
+.encabezado {
+    margin-bottom: 1.5rem;
+}
+
+.encabezado h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+.encabezado p {
+    color: #5c5c5c;
+}
+
+.resumen {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.tarjeta {
+    padding: 1rem;
+    background: #f3f6f9;
+    border-radius: 8px;
+}
+
+.etiqueta {
+    font-size: 0.85rem;
+    color: #444444;
+}
+
+.numero {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+}
+
+button {
+    background: #0176d3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+}
+
+.mensaje {
+    margin-top: 1rem;
+}

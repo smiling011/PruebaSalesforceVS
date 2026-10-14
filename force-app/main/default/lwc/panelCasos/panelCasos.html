@@ -1,0 +1,31 @@
+<template>
+    <section class="panel">
+        <div class="encabezado">
+            <h1>Panel de casos</h1>
+            <p>Gestión de casos de mantenimiento</p>
+        </div>
+
+        <div class="resumen">
+            <div class="tarjeta">
+                <span class="etiqueta">Total de casos</span>
+                <p class="numero">0</p>
+            </div>
+
+            <div class="tarjeta">
+                <span class="etiqueta">Casos abiertos</span>
+                <p class="numero">0</p>
+            </div>
+
+            <div class="tarjeta">
+                <span class="etiqueta">Casos cerrados</span>
+                <p class="numero">0</p>
+            </div>
+        </div>
+
+        <button onclick={mostrarMensaje}>
+            Probar componente
+        </button>
+
+        <p class="mensaje">{mensaje}</p>
+    </section>
+</template>
