@@ -1,31 +1,26 @@
 <template>
-    <section class="panel">
-        <div class="encabezado">
-            <h1>Panel de casos</h1>
-            <p>Gestión de casos de mantenimiento</p>
-        </div>
+    <lightning-card title="Gestor de casos">
+        <template lwc:if={casos.data}>
+            <lightning-combobox
+                label="Filtrar por estado"
+                value={estadoSeleccionado}
+                options={opcionesEstado}
+                onchange={handleCambioEstado}>
+            </lightning-combobox>
+            <template for:each={casos.data} for:item="caso">
+                <div key={caso.Id} class="slds-p-around_small">
+                    <p><strong>Número:</strong> {caso.CaseNumber}</p>
+                    <p><strong>Asunto:</strong> {caso.Subject}</p>
+                    <p><strong>Estado:</strong> {caso.Status}</p>
+                    <p><strong>Prioridad:</strong> {caso.Priority}</p>
+                </div>
+            </template>
+        </template>
 
-        <div class="resumen">
-            <div class="tarjeta">
-                <span class="etiqueta">Total de casos</span>
-                <p class="numero">0</p>
-            </div>
-
-            <div class="tarjeta">
-                <span class="etiqueta">Casos abiertos</span>
-                <p class="numero">0</p>
-            </div>
-
-            <div class="tarjeta">
-                <span class="etiqueta">Casos cerrados</span>
-                <p class="numero">0</p>
-            </div>
-        </div>
-
-        <button onclick={mostrarMensaje}>
-            Probar componente
-        </button>
-
-        <p class="mensaje">{mensaje}</p>
-    </section>
+        <template lwc:if={casos.error}>
+            <p class="slds-p-around_small">
+                No fue posible cargar los casos.
+            </p>
+        </template>
+    </lightning-card>
 </template>
