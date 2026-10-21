@@ -1,26 +1,112 @@
-<template>
-    <lightning-card title="Gestor de casos">
-        <template lwc:if={casos.data}>
-            <lightning-combobox
-                label="Filtrar por estado"
-                value={estadoSeleccionado}
-                options={opcionesEstado}
-                onchange={handleCambioEstado}>
-            </lightning-combobox>
-            <template for:each={casos.data} for:item="caso">
-                <div key={caso.Id} class="slds-p-around_small">
-                    <p><strong>Número:</strong> {caso.CaseNumber}</p>
-                    <p><strong>Asunto:</strong> {caso.Subject}</p>
-                    <p><strong>Estado:</strong> {caso.Status}</p>
-                    <p><strong>Prioridad:</strong> {caso.Priority}</p>
-                </div>
-            </template>
-        </template>
 
-        <template lwc:if={casos.error}>
-            <p class="slds-p-around_small">
-                No fue posible cargar los casos.
-            </p>
-        </template>
+<template>
+    <lightning-card>
+        <div class="panel">
+
+            <!-- Encabezado -->
+            <header class="encabezado">
+                <div class="icono-header">
+                    <lightning-icon
+                        icon-name="standard:case"
+                        size="large"
+                        alternative-text="Casos">
+                    </lightning-icon>
+                </div>
+
+                <div>
+                    <h1>Gestor de casos</h1>
+                    <p>Consulta y seguimiento de casos de soporte</p>
+                </div>
+            </header>
+
+            <!-- Filtro -->
+            <section class="filtros">
+                <div class="titulo-filtro">
+                    <lightning-icon
+                        icon-name="utility:filterList"
+                        size="x-small"
+                        alternative-text="Filtro">
+                    </lightning-icon>
+                    <h2>Filtrar por estado</h2>
+                </div>
+
+                <lightning-combobox
+                    label="Estado del caso"
+                    variant="label-hidden"
+                    value={estadoSeleccionado}
+                    options={opcionesEstado}
+                    onchange={handleCambioEstado}>
+                </lightning-combobox>
+            </section>
+
+            <!-- Lista de casos -->
+            <section class="lista-casos">
+                <template lwc:if={casos.data}>
+                    <template for:each={casos.data} for:item="caso">
+                        <article key={caso.Id} class="tarjeta-caso">
+
+                            <div class="icono-caso">
+                                <lightning-icon
+                                    icon-name="standard:case"
+                                    size="medium"
+                                    alternative-text="Caso">
+                                </lightning-icon>
+                            </div>
+
+                            <div class="informacion-caso">
+                                <span class="etiqueta">NÚMERO</span>
+                                <p class="numero">
+                                    {caso.CaseNumber}
+                                </p>
+                            </div>
+
+                            <div class="informacion-asunto">
+                                <span class="etiqueta">ASUNTO</span>
+                                <p class="asunto">
+                                    {caso.Subject}
+                                </p>
+                            </div>
+
+                            <div class="informacion-campo">
+                                <span class="etiqueta">ESTADO</span>
+                                <lightning-badge
+                                    label={caso.Status}>
+                                </lightning-badge>
+                            </div>
+
+                            <div class="informacion-campo">
+                                <span class="etiqueta">PRIORIDAD</span>
+                                <lightning-badge
+                                    label={caso.Priority}>
+                                </lightning-badge>
+                            </div>
+
+                        </article>
+                    </template>
+                </template>
+
+                <!-- Error -->
+                <template lwc:if={casos.error}>
+                    <div class="mensaje-error">
+                        <lightning-icon
+                            icon-name="utility:error"
+                            size="small"
+                            alternative-text="Error">
+                        </lightning-icon>
+                        <p>No fue posible cargar los casos.</p>
+                    </div>
+                </template>
+            </section>
+
+            <footer class="pie">
+                <lightning-icon
+                    icon-name="utility:info"
+                    size="xx-small"
+                    alternative-text="Información">
+                </lightning-icon>
+                <span>Selecciona un estado para filtrar tus casos.</span>
+            </footer>
+
+        </div>
     </lightning-card>
 </template>

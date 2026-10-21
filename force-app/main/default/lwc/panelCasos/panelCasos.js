@@ -6,8 +6,10 @@ export default class PanelCasos extends LightningElement {
     opcionesEstado = [
         { label: 'Todos', value: '' },
         { label: 'Nuevo', value: 'New' },
-        { label: 'En progreso', value: 'Working' },
-        { label: 'Cerrado', value: 'Closed' }
+        { label: 'En progreso', value: 'On Hold' },
+        { label: 'Cerrado', value: 'Closed' },
+        { label: 'En escala', value: 'Escalated' }
+        
     ];
     @wire(obtenerCasos, {estado: '$estadoSeleccionado'})
     casos;
