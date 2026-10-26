@@ -202,3 +202,61 @@
         font-size: 1.3rem;
     }
 }
+
+/* Botón rosa Barbie */
+lightning-button {
+    --slds-c-button-brand-color-background: #e83e8c;
+    --slds-c-button-brand-color-border: #e83e8c;
+    --slds-c-button-brand-color-background-hover: #cc2675;
+    --slds-c-button-brand-color-border-hover: #cc2675;
+    --slds-c-button-brand-text-color: #ffffff;
+}
+
+/* Resultados de búsqueda */
+.resultados-busqueda {
+    margin-top: 0.35rem;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #f3bfd8;
+    border-radius: 0.75rem;
+    box-shadow: 0 5px 14px rgba(205, 70, 135, 0.10);
+}
+
+.resultado-caso {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    background: #ffffff;
+    border: none;
+    border-bottom: 1px solid #fbe3ef;
+    cursor: pointer;
+}
+
+.resultado-caso:last-child {
+    border-bottom: none;
+}
+
+.resultado-caso:hover {
+    background: #fff0f6;
+}
+
+.resultado-numero {
+    color: #c21869;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.resultado-asunto {
+    color: #493047;
+    font-size: 0.9rem;
+}
+
+.caso-elegido {
+    margin-top: 0.6rem;
+    color: #a51e64;
+    font-size: 0.85rem;
+}

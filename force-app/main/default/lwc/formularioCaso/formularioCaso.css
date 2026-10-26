@@ -1,0 +1,87 @@
+:host {
+    display: block;
+    --rosa-principal: #e83e8c;
+    --rosa-oscuro: #a51e64;
+    --rosa-fondo: #fff4f9;
+    --rosa-borde: #f6c6dd;
+}
+
+.formulario {
+    padding: 1.5rem;
+    color: #493047;
+    background: linear-gradient(145deg, #fffafd, var(--rosa-fondo));
+    border: 1px solid var(--rosa-borde);
+    border-radius: 1rem;
+}
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(120deg, #ffe0ed, #fff0f6);
+    border: 1px solid var(--rosa-borde);
+    border-radius: 0.85rem;
+}
+
+.icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    flex-shrink: 0;
+    background: #ffffff;
+    border-radius: 1rem;
+}
+
+.encabezado h1 {
+    margin: 0 0 0.4rem;
+    color: var(--rosa-oscuro);
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.encabezado p {
+    margin: 0;
+    color: #92758f;
+    font-size: 0.9rem;
+}
+
+.contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.25rem;
+}
+
+@media (max-width: 500px) {
+    .formulario {
+        padding: 0.8rem;
+    }
+
+    .encabezado h1 {
+        font-size: 1.1rem;
+    }
+}
+
+.acciones {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.acciones lightning-button {
+    --slds-c-button-brand-color-background: #ff4f91;
+    --slds-c-button-brand-color-border: #ff4f91;
+    --slds-c-button-brand-color-background-hover: #e83e7e;
+    --slds-c-button-brand-color-border-hover: #e83e7e;
+}
+
+.mensaje {
+    margin-top: 1rem;
+    text-align: center;
+    color: #b42365;
+    font-weight: 600;
+}

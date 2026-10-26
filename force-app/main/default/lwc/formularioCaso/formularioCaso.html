@@ -1,0 +1,53 @@
+<template>
+    <div class="formulario">
+        <header class="encabezado">
+            <div class="icono">
+                <lightning-icon
+                    icon-name="standard:case"
+                    size="large"
+                    alternative-text="Caso de soporte">
+                </lightning-icon>
+            </div>
+
+            <div>
+                <h1>Crear solicitud de soporte</h1>
+                <p>Cuéntanos qué problema necesitas resolver.</p>
+            </div>
+        </header>
+
+        <div class="contenido">
+            <lightning-input
+                label="Asunto"
+                value={asunto}
+                onchange={handleAsunto}
+                required
+                maxlength="255">
+            </lightning-input>
+
+            <lightning-textarea
+                class="campo-descripcion"
+                label="Descripción del problema"
+                value={descripcion}
+                onchange={handleDescripcion}
+                required>
+            </lightning-textarea>
+
+            <lightning-combobox
+                class="campo-prioridad"
+                label="Prioridad"
+                value={prioridad}
+                options={opcionesPrioridad}
+                onchange={handlePrioridad}
+                required>
+            </lightning-combobox>
+        </div>
+        <div class="acciones">
+            <lightning-button
+                label="Crear caso"
+                variant="brand"
+                onclick={handleCrearCaso}>
+            </lightning-button>
+        </div>
+    </div>
+</template>
+ 

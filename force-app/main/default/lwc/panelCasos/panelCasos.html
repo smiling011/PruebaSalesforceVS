@@ -38,6 +38,79 @@
                     onchange={handleCambioEstado}>
                 </lightning-combobox>
             </section>
+            
+            <section class="filtros">
+                <div class="titulo-filtro">
+                    <h2>Actualizar un caso</h2>
+                </div>
+
+                
+                <lightning-input
+                    type="search"
+                    label="Buscar caso"
+                    placeholder="Escribe el número o el asunto..."
+                    value={busquedaCaso}
+                    onchange={handleBuscarCaso}>
+                </lightning-input>
+
+                <template lwc:if={casosEncontrados.length}>
+                    <div class="resultados-busqueda">
+                        <template for:each={casosEncontrados} for:item="caso">
+                            <button
+                                key={caso.Id}
+                                type="button"
+                                class="resultado-caso"
+                                data-id={caso.Id}
+                                onclick={handleSeleccionarCaso}>
+
+                                <span class="resultado-numero">
+                                    #{caso.CaseNumber}
+                                </span>
+                                <span class="resultado-asunto">
+                                    {caso.Subject}
+                                </span>
+                            </button>
+                        </template>
+                    </div>
+                </template>
+
+                <template lwc:if={casoSeleccionadoNombre}>
+                    <p class="caso-elegido">
+                        Caso seleccionado: {casoSeleccionadoNombre}
+                    </p>
+                </template>
+
+
+                <lightning-combobox
+                    class="slds-m-top_small"
+                    label="Nuevo estado"
+                    value={nuevoEstado}
+                    options={opcionesEstado}
+                    onchange={handleNuevoEstado}
+                    placeholder="Elige el nuevo estado">
+                </lightning-combobox>
+
+                <div class="slds-m-top_medium">
+                    <lightning-button
+                        label="Guardar cambios"
+                        variant="brand"
+                        onclick={handleActualizar}>
+                    </lightning-button>
+                </div>
+
+                <template lwc:if={mensaje}>
+                    <p class="slds-text-color_success slds-m-top_small">
+                        {mensaje}
+                    </p>
+                </template>
+
+                <template lwc:if={errorActualizacion}>
+                    <p class="slds-text-color_error slds-m-top_small">
+                        {errorActualizacion}
+                    </p>
+                </template>
+            </section>
+
 
             <!-- Lista de casos -->
             <section class="lista-casos">
@@ -97,6 +170,7 @@
                     </div>
                 </template>
             </section>
+
 
             <footer class="pie">
                 <lightning-icon
